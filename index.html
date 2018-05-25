@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Vote App</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="f in frameworks">
+                {{ f.name }} has {{ f.votes }} votes
+                <button v-on:click="voteFor(f)">Vote</button>
+            </li>
+        </ul>
+        <input placeholder="Add new"
+        v-on:keyup.enter="addNew">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
