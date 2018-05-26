@@ -12,9 +12,16 @@
             <li v-for="f in frameworks">
                 {{ f.name }} has {{ f.votes }} votes
                 <button v-on:click="voteFor(f)">Vote</button>
+                <button v-if="editMode" v-on:click="remove(f)">Delete</button>
             </li>
         </ul>
-        <input placeholder="Add new"
+
+        <p>Current Winner(s): {{ winnerString }}</p>
+
+        <button v-on:click="toggleEditMode">
+            {{ editMode ? 'Done' : 'Edit' }}
+        </button>
+        <input placeholder="Add new" v-if="editMode" 
         v-on:keyup.enter="addNew">
     </div>
     <script src="script.js"></script>
